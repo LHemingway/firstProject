@@ -52,17 +52,19 @@ ul li{
 	padding-top: 20px;
 }
 
-.playerHP img{
-
-}
-
 .enemies{
 	height: 60px;
 	width: 60px;
 	border: 2px solid black;
-	float: left;
+	background-color: lightgreen;
 }
 
+.grid{
+	height: 60px;
+	width: 60px;
+	border: 2px solid black;
+	display: inline-block;
+}
 
 			/*ID's*/
 
@@ -71,7 +73,6 @@ ul li{
 }
 
 #instructions{
-	/*Get it in center and to hide until intructions in nav bar is clicked*/
 	display: none;
 }
 
