@@ -1,7 +1,11 @@
+			/*Elements*/
+
 body{
 	height: 100vh;
 	width: 100vw;
 	margin-bottom: 200px;
+	font-family: helvetica;
+	font-size: 1.2em;
 }
 
 footer{
@@ -22,17 +26,38 @@ footer div{
 }
 
 ul li{
-	list-style-type: none;/*
-	padding-right: 30px;*/
+	list-style-type: none;
+	padding-top: 20px;
+	padding-right: 40px;
+}
+
+			/*Classes*/
+
+.navbar{
+	background-color: #C0C0C0;
+	padding-right: 20px;
 }
 
 .playerPic{
 	width: 34%;
 }
 
-.navbar{
+.leadInstruc{
+	width: 50%; 
+	height: 40%;
+	margin: 100px 350px;
+	border: 2px solid black;
 	background-color: #C0C0C0;
+	text-align: center;
+	padding-top: 20px;
 }
+
+.playerHP img{
+
+}
+
+
+			/*ID's*/
 
 #timer{
 	color: black;
@@ -40,29 +65,10 @@ ul li{
 
 #intructions{
 	/*Get it in center and to hide until intructions in nav bar is clicked*/
-	width: 50%; 
-	height: 40%;
-	margin: 100px 350px;
-	border: 2px solid black;
-	background-color: #C0C0C0;
-	text-align: center;
-	/*display: none;*/
+	display: none;
 }
 
-/*.playerHP{
-    width: 33%;
-    height: 100px;
-    margin: 0px;
-    border: 2px solid black;
-    padding: 0;
-    float: left;
-}
+#leaderboard{
+	display: none;
 
-.playerScore {
-	width: 33%;
-    height: 100px;
-    margin: 0px;
-    border: 2px solid black;
-    padding: 0;
-    float: left;
-}*/
+}
