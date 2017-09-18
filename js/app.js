@@ -7,16 +7,11 @@ var beginGame
 
 	toggleDiv();
 	startGame();
-	createGrid();
 	// killEnemies();
 	
-///Put enemies around the map in an array and load them randomly
-
-	function createGrid() {
-		for(i=0; i<64; i++) {
-        		$("<div class='grid'>").appendTo('body');
-        	}
-	}
+///animation translation and random 
+///Make duck hunt basically
+///animate it moving across the screen from random spots
 
 	function toggleDiv() {
 
@@ -36,7 +31,7 @@ var beginGame
 	function startGame(){
 		$("#navHome").click(function(){
 			score = 0;
-			hitPoints = 3;
+			hitPoints = 1;
 			console.log("StartedHome");
 			hideCrap();
 			enemiesFunc();
@@ -45,7 +40,7 @@ var beginGame
 		$("#retryButton").click(function(){
 			console.log("StartedBtn");
 			score = 0;
-			hitPoints = 3;
+			hitPoints = 1;
 			hideCrap();
 			enemiesFunc();
 		});
