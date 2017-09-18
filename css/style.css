@@ -56,14 +56,27 @@ ul li{
 
 }
 
+.enemies{
+	height: 60px;
+	width: 60px;
+	border: 2px solid black;
+	float: left;
+}
+
 
 			/*ID's*/
+
+#startButton{
+	height: 200px;
+	width: 200px;
+	border: 2px solid black;
+}
 
 #timer{
 	color: black;
 }
 
-#intructions{
+#instructions{
 	/*Get it in center and to hide until intructions in nav bar is clicked*/
 	display: none;
 }
