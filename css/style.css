@@ -42,7 +42,7 @@ ul li{
 	width: 34%;
 }
 
-.leadInstruc{
+.largeTextDiv{
 	width: 50%; 
 	height: 40%;
 	margin: 100px 350px;
@@ -66,12 +66,6 @@ ul li{
 
 			/*ID's*/
 
-#startButton{
-	height: 200px;
-	width: 200px;
-	border: 2px solid black;
-}
-
 #timer{
 	color: black;
 }
@@ -83,5 +77,8 @@ ul li{
 
 #leaderboard{
 	display: none;
+}
 
+#gameOver{
+	display: none;
 }

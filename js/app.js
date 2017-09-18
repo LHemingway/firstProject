@@ -2,6 +2,8 @@ $(function() {
 
 var score = 0;
 var hitPoints = 3;
+var loss;
+var beginGame
 
 	toggleDiv();
 	startGame();
@@ -22,48 +24,55 @@ var hitPoints = 3;
 	}
 
 	function startGame(){
-		$("#startButton").click(function(){
+		$("#navHome").click(function(){
 			console.log("Hi")
-			$(this).hide();
-			killEnemies();
+			// $(this).hide();
+			enemiesFunc();
 		});
 	}
 
 
+	function enemiesFunc() {
 
-
-
-	function killEnemies() {
-
-		setInterval(function(){
+		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
-         $("<div class='enemies' id='enemy'>").appendTo('body');
+        		$("<div class='enemies' id='enemy'>").appendTo('body');
     
-			$("#enemy").show();
-			setTimeout(function() {
+				$("#enemy").show();
+				timeEnemies();
+				killEnemies();
+						}
+		}, 3000);
+		
+	}	
+
+	function timeEnemies(){
+		setTimeout(function() {
 				$("#enemy").css("background-color", "red");
-			}, 2000);
-			var loss = setTimeout(function() {
+			}, 1000);
+			loss = setTimeout(function() {
 				$("#enemy").remove();
 				hitPoints --;
 				console.log("HP " + hitPoints);
 				if (hitPoints == 0){
-					alert("game over");
+					$("#gameOver").show;
+					clearTimeout(beginGame);
 				}
-			}, 3000);
-			$("#enemy").click(function(){
+			}, 2000);
+	}
+		
+	function killEnemies(){
+		$("#enemy").click(function(){
 			// if(true){
 				$("#enemy").remove();
 				score ++;
 				console.log("Score" + score)
 				clearTimeout(loss);
 		});	
-			}
-		}, 5000);
-		
-	}	
 
-		
+	}
+
+
 	
 
 
