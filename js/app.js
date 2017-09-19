@@ -1,13 +1,16 @@
 $(function() {
 
-var score
-var	hitPoints
+var score;
+var	hitPoints;
 var loss;
-var beginGame
+var beginGame;
+var animatespeed = 2000;
+var distance;
+// var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
+// var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
 
 	toggleDiv();
 	startGame();
-	// killEnemies();
 	
 ///animation translation and random 
 ///Make duck hunt basically
@@ -46,20 +49,18 @@ var beginGame
 		});
 	}
 
-
 	function enemiesFunc() {
 
 		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
-        		$("<div class='enemies' id='enemy'>").appendTo('body');
-
-    			
+        		$("<div class='enemies' id='enemy'></div>").appendTo('body');
+    			distance = Math.floor(Math.random() * 99) + 1;
 				$("#enemy").show();
-				timeEnemies();
+				// timeEnemies();
 				killEnemies();
-						}
+				enemyLeft();
+			}
 		}, 3000);
-		
 	}	
 
 	function timeEnemies(){
@@ -83,10 +84,17 @@ var beginGame
 		$("#enemy").click(function(){
 			// if(true){
 			$("#enemy").remove();
-			score ++;
+			score += 500;
+			animatespeed -=200;
 			$(".playerScore").html("Score: " +score);
 			clearTimeout(loss);
 		});	
+	}
+
+	function enemyLeft() {
+	    $("#enemy").animate({left: distance + "%", height: "290px"}, animatespeed);
+	    // $("#enemy").animate({left: "42%", width: "290px"}, "fast");
+	    // $("#enemy").animate({left: "-=300"}, 1000);
 	}
 
 	function hideCrap(){
@@ -95,7 +103,4 @@ var beginGame
 		$(gameOver).hide();
 	};
 	
-
-
-
 })
