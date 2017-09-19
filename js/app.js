@@ -5,8 +5,8 @@ var	hitPoints;
 var loss;
 var beginGame;
 var animatespeed = 1500;
-var distance;
-var marginHeight;
+var enemyRespawn = 3200;
+var enemyLifeSpan = 3000;
 // var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
 // var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
 
@@ -33,7 +33,7 @@ var marginHeight;
 	}
 
 	function startGame(){
-		$("#navHome").click(function(){
+		$("#navSingle").click(function(){
 			setScoreHP();
 			hideDiv();
 			enemiesFunc();
@@ -50,20 +50,26 @@ var marginHeight;
 
 		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
-				distance = 60 + Math.floor(Math.random() * 40) + 1;
-				distance2 = Math.floor(Math.random() * 30) + 1;
+				length1 = 60 + Math.floor(Math.random() * 35) + 1;
+				length2 = Math.floor(Math.random() * 30) + 1;
+				height1 = Math.floor(Math.random() * 43) + 1;
+				height2 = Math.floor(Math.random() * 43) + 1;
 				marginHeight = Math.floor(Math.random() * 43) + 1;
-				console.log(distance , distance2);
+
+				console.log(length1 , length2);
+				console.log(height1, height2 );
         		$("<div class='enemies' id='enemy'></div>").appendTo('body');
         		$("#enemy").css("margin-top", marginHeight + "%");
     			
 				timeEnemies();
 				
 				killEnemies();
-				enemyLeft();
+				enemyAnimate();
 				console.log(animatespeed);
+				console.log(enemyRespawn);
+				console.log(enemyLifeSpan);
 			}
-		}, 3200);
+		}, enemyRespawn);
 	}	
 
 	function timeEnemies(){
@@ -80,7 +86,7 @@ var marginHeight;
 				$("#gameOver").show();
 				clearTimeout(beginGame);
 			}
-		}, 3000);
+		}, enemyLifeSpan);
 	}
 		
 	function killEnemies(){
@@ -88,16 +94,17 @@ var marginHeight;
 			$("#enemy").remove();
 			score += 100;
 			animatespeed -=50;
+			enemyRespawn -=100;
+			enemyLifeSpan -=100;
 			$(".playerScore").html("Score: " +score);
 			clearTimeout(loss);
 		});	
 	}
 
-	function enemyLeft() {
-		for(i=0; i<1; i++) {
-	    $("#enemy").animate({left: distance + "%"}, animatespeed);
-	    $("#enemy").animate({left: distance2 + "%"}, animatespeed);
-		}
+	function enemyAnimate() {
+	    $("#enemy").animate({left: length1 + "%", top: height1 + "%"}, animatespeed);
+	    $("#enemy").animate({left: length2 + "%", top: height2 + "%"}, animatespeed);
+		
 	}
 
 	function hideDiv(){
