@@ -59,7 +59,7 @@ var marginHeight;
 				marginHeight = Math.floor(Math.random() * 43) + 1;
 				console.log(marginHeight);
         		$("<div class='enemies' id='enemy'></div>").appendTo('body');
-        			$("#enemy").css("margin-top", marginHeight + "%");
+        		$("#enemy").css("margin-top", marginHeight + "%");
     			
 				timeEnemies();
 				
@@ -71,9 +71,9 @@ var marginHeight;
 	}	
 
 	function timeEnemies(){
-		setTimeout(function() {
-			$("#enemy").css("background-color", "red");
-		}, 2200);
+		// setTimeout(function() {
+		// 	$("#enemy").css("background-color", "red");
+		// }, 2200);
 
 		loss = setTimeout(function() {
 			$("#enemy").remove();

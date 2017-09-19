@@ -53,20 +53,12 @@ ul li{
 }
 
 .enemies{
-	height: 60px;
-	width: 60px;
+	height: 100px;
+	width: 100px;
 	position: absolute; 
 	border: 2px solid black;
-	background-color: lightgreen;
-	/*background-size: contain;
-	background-image: url("../images/HealthPack.png");*/
-}
-
-.grid{
-	height: 60px;
-	width: 60px;
-	border: 2px solid black;
-	display: inline-block;
+	background-size: contain;
+	background-image: url("../images/Soldier100.png");
 }
 
 			/*ID's*/
