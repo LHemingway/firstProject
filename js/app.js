@@ -44,6 +44,10 @@ var enemyLifeSpan = 3000;
 			hideDiv();
 			enemiesFunc();
 		});
+
+		$("#navMulti").click(function(){
+
+		});
 	}
 
 	function enemiesFunc() {
@@ -62,9 +66,10 @@ var enemyLifeSpan = 3000;
         		$("#enemy").css("margin-top", marginHeight + "%");
     			
 				timeEnemies();
-				
 				killEnemies();
 				enemyAnimate();
+
+
 				console.log(animatespeed);
 				console.log(enemyRespawn);
 				console.log(enemyLifeSpan);
@@ -73,9 +78,6 @@ var enemyLifeSpan = 3000;
 	}	
 
 	function timeEnemies(){
-		// setTimeout(function() {
-		// 	$("#enemy").css("background-color", "red");
-		// }, 2200);
 
 		loss = setTimeout(function() {
 			$("#enemy").remove();
@@ -85,6 +87,8 @@ var enemyLifeSpan = 3000;
 			if (hitPoints === 0){
 				$("#gameOver").show();
 				clearTimeout(beginGame);
+				$("#leaderboard ol").append("Player Name - " +score + "<br/>");
+
 			}
 		}, enemyLifeSpan);
 	}
@@ -103,22 +107,24 @@ var enemyLifeSpan = 3000;
 
 	function enemyAnimate() {
 	    $("#enemy").animate({left: length1 + "%", top: height1 + "%"}, animatespeed);
-	    $("#enemy").animate({left: length2 + "%", top: height2 + "%"}, animatespeed);
-		
+	    $("#enemy").animate({left: length2 + "%", top: height2 + "%"}, animatespeed);		
 	}
 
 	function hideDiv(){
 		$(instructions).hide();
 		$(leaderboard).hide();
 		$(gameOver).hide();
-	};
-
+	}
 
 	function setScoreHP(){
 		score = 0;
 		hitPoints = 2;
 		$(".playerHP").html("Health: " +hitPoints);
 		$(".playerScore").html("Score: " +score);
+	}
+
+	function leaderboardSort(){
+		$("#leaderboard li")
 	}
 	
 })
