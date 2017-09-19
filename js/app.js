@@ -4,7 +4,7 @@ var score;
 var	hitPoints;
 var loss;
 var beginGame;
-var animatespeed = 2000;
+var animatespeed = 1500;
 var distance;
 var marginHeight;
 // var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
@@ -34,18 +34,13 @@ var marginHeight;
 
 	function startGame(){
 		$("#navHome").click(function(){
-			score = 0;
-			hitPoints = 2;
-			$(".playerHP").html("Health: " +hitPoints);
-			console.log("StartedHome");
+			setScoreHP();
 			hideDiv();
 			enemiesFunc();
 		});
 
 		$("#retryButton").click(function(){
-			console.log("StartedBtn");
-			score = 0;
-			hitPoints = 2;
+			setScoreHP();
 			hideDiv();
 			enemiesFunc();
 		});
@@ -55,9 +50,10 @@ var marginHeight;
 
 		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
-				distance = Math.floor(Math.random() * 90) + 1;
+				distance = 60 + Math.floor(Math.random() * 40) + 1;
+				distance2 = Math.floor(Math.random() * 30) + 1;
 				marginHeight = Math.floor(Math.random() * 43) + 1;
-				console.log(marginHeight);
+				console.log(distance , distance2);
         		$("<div class='enemies' id='enemy'></div>").appendTo('body');
         		$("#enemy").css("margin-top", marginHeight + "%");
     			
@@ -67,7 +63,7 @@ var marginHeight;
 				enemyLeft();
 				console.log(animatespeed);
 			}
-		}, 3000);
+		}, 3200);
 	}	
 
 	function timeEnemies(){
@@ -84,7 +80,7 @@ var marginHeight;
 				$("#gameOver").show();
 				clearTimeout(beginGame);
 			}
-		}, 2500);
+		}, 3000);
 	}
 		
 	function killEnemies(){
@@ -98,9 +94,10 @@ var marginHeight;
 	}
 
 	function enemyLeft() {
-	    $("#enemy").animate({left: distance + "%", height: "100px"}, animatespeed);
-	    // $("#enemy").animate({left: "42%", width: "290px"}, "fast");
-	    // $("#enemy").animate({left: "-=300"}, 1000);
+		for(i=0; i<1; i++) {
+	    $("#enemy").animate({left: distance + "%"}, animatespeed);
+	    $("#enemy").animate({left: distance2 + "%"}, animatespeed);
+		}
 	}
 
 	function hideDiv(){
@@ -108,5 +105,13 @@ var marginHeight;
 		$(leaderboard).hide();
 		$(gameOver).hide();
 	};
+
+
+	function setScoreHP(){
+		score = 0;
+		hitPoints = 2;
+		$(".playerHP").html("Health: " +hitPoints);
+		$(".playerScore").html("Score: " +score);
+	}
 	
 })

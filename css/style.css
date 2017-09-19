@@ -59,6 +59,7 @@ ul li{
 	border: 2px solid black;
 	background-size: contain;
 	background-image: url("../images/Soldier100.png");
+	margin-left: 25px;
 }
 
 			/*ID's*/
