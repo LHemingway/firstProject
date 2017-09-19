@@ -6,6 +6,7 @@ var loss;
 var beginGame;
 var animatespeed = 2000;
 var distance;
+var marginHeight;
 // var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
 // var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
 
@@ -35,6 +36,7 @@ var distance;
 		$("#navHome").click(function(){
 			score = 0;
 			hitPoints = 2;
+			$(".playerHP").html("Health: " +hitPoints);
 			console.log("StartedHome");
 			hideDiv();
 			enemiesFunc();
@@ -43,7 +45,7 @@ var distance;
 		$("#retryButton").click(function(){
 			console.log("StartedBtn");
 			score = 0;
-			hitPoints = 1;
+			hitPoints = 2;
 			hideDiv();
 			enemiesFunc();
 		});
@@ -53,13 +55,17 @@ var distance;
 
 		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
-				timeEnemies();
+				distance = Math.floor(Math.random() * 90) + 1;
+				marginHeight = Math.floor(Math.random() * 43) + 1;
+				console.log(marginHeight);
         		$("<div class='enemies' id='enemy'></div>").appendTo('body');
-    			distance = Math.floor(Math.random() * 90) + 1;
+        			$("#enemy").css("margin-top", marginHeight + "%");
+    			
+				timeEnemies();
 				
-				$("#enemy").show();
 				killEnemies();
 				enemyLeft();
+				console.log(animatespeed);
 			}
 		}, 3000);
 	}	
@@ -67,7 +73,7 @@ var distance;
 	function timeEnemies(){
 		setTimeout(function() {
 			$("#enemy").css("background-color", "red");
-		}, 2500);
+		}, 2200);
 
 		loss = setTimeout(function() {
 			$("#enemy").remove();
@@ -78,22 +84,21 @@ var distance;
 				$("#gameOver").show();
 				clearTimeout(beginGame);
 			}
-		}, 3000);
+		}, 2500);
 	}
 		
 	function killEnemies(){
 		$("#enemy").click(function(){
-			// if(true){
 			$("#enemy").remove();
-			score += 500;
-			// animatespeed -=200;
+			score += 100;
+			animatespeed -=50;
 			$(".playerScore").html("Score: " +score);
 			clearTimeout(loss);
 		});	
 	}
 
 	function enemyLeft() {
-	    $("#enemy").animate({left: distance + "%", height: "290px"}, animatespeed);
+	    $("#enemy").animate({left: distance + "%", height: "100px"}, animatespeed);
 	    // $("#enemy").animate({left: "42%", width: "290px"}, "fast");
 	    // $("#enemy").animate({left: "-=300"}, 1000);
 	}
