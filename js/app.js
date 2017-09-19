@@ -19,13 +19,13 @@ var distance;
 	function toggleDiv() {
 
 		$(navLeaderboard).click(function(){
-			$(leaderboard).toggle("slow"); 
+			$(leaderboard).toggle(""); 
 			$(instructions).hide();
 			$(gameOver).hide();
 		});
 		
 		$(navIntructions).click(function(){
-			$(instructions).toggle("slow"); 
+			$(instructions).toggle(""); 
 			$(leaderboard).hide();
 			$(gameOver).hide();
 		});
@@ -34,9 +34,9 @@ var distance;
 	function startGame(){
 		$("#navHome").click(function(){
 			score = 0;
-			hitPoints = 1;
+			hitPoints = 2;
 			console.log("StartedHome");
-			hideCrap();
+			hideDiv();
 			enemiesFunc();
 		});
 
@@ -44,7 +44,7 @@ var distance;
 			console.log("StartedBtn");
 			score = 0;
 			hitPoints = 1;
-			hideCrap();
+			hideDiv();
 			enemiesFunc();
 		});
 	}
@@ -53,10 +53,11 @@ var distance;
 
 		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
+				timeEnemies();
         		$("<div class='enemies' id='enemy'></div>").appendTo('body');
-    			distance = Math.floor(Math.random() * 99) + 1;
+    			distance = Math.floor(Math.random() * 90) + 1;
+				
 				$("#enemy").show();
-				// timeEnemies();
 				killEnemies();
 				enemyLeft();
 			}
@@ -66,7 +67,7 @@ var distance;
 	function timeEnemies(){
 		setTimeout(function() {
 			$("#enemy").css("background-color", "red");
-		}, 1000);
+		}, 2500);
 
 		loss = setTimeout(function() {
 			$("#enemy").remove();
@@ -77,7 +78,7 @@ var distance;
 				$("#gameOver").show();
 				clearTimeout(beginGame);
 			}
-		}, 2000);
+		}, 3000);
 	}
 		
 	function killEnemies(){
@@ -85,7 +86,7 @@ var distance;
 			// if(true){
 			$("#enemy").remove();
 			score += 500;
-			animatespeed -=200;
+			// animatespeed -=200;
 			$(".playerScore").html("Score: " +score);
 			clearTimeout(loss);
 		});	
@@ -97,7 +98,7 @@ var distance;
 	    // $("#enemy").animate({left: "-=300"}, 1000);
 	}
 
-	function hideCrap(){
+	function hideDiv(){
 		$(instructions).hide();
 		$(leaderboard).hide();
 		$(gameOver).hide();
