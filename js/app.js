@@ -1,14 +1,13 @@
 $(function() {
 
 var score;
+var highScore = 0;
 var	hitPoints;
 var loss;
 var beginGame;
 var animatespeed = 1500;
 var enemyRespawn = 3200;
 var enemyLifeSpan = 3000;
-// var posx = (Math.random() * ($(document).width() - divsize)).toFixed();
-// var posy = (Math.random() * ($(document).height() - divsize)).toFixed();
 
 	toggleDiv();
 	startGame();
@@ -16,6 +15,11 @@ var enemyLifeSpan = 3000;
 ///animation translation and random 
 ///Make duck hunt basically
 ///animate it moving across the screen from random spots
+
+
+///Allow user to chose player name!
+///Set Player name to be what shows up on high score!
+
 
 	function toggleDiv() {
 
@@ -68,11 +72,6 @@ var enemyLifeSpan = 3000;
 				timeEnemies();
 				killEnemies();
 				enemyAnimate();
-
-
-				console.log(animatespeed);
-				console.log(enemyRespawn);
-				console.log(enemyLifeSpan);
 			}
 		}, enemyRespawn);
 	}	
@@ -87,8 +86,11 @@ var enemyLifeSpan = 3000;
 			if (hitPoints === 0){
 				$("#gameOver").show();
 				clearTimeout(beginGame);
-				$("#leaderboard ol").append("Player Name - " +score + "<br/>");
-
+				if (score >= highScore) {
+					highScore = score;
+				$("#leaderboard ol").empty();	
+				$("#leaderboard ol").append("Player Name - " + "<br/>" + highScore);
+			}
 			}
 		}, enemyLifeSpan);
 	}
@@ -118,13 +120,9 @@ var enemyLifeSpan = 3000;
 
 	function setScoreHP(){
 		score = 0;
-		hitPoints = 2;
+		hitPoints = 1;
 		$(".playerHP").html("Health: " +hitPoints);
 		$(".playerScore").html("Score: " +score);
-	}
-
-	function leaderboardSort(){
-		$("#leaderboard li")
 	}
 	
 })
