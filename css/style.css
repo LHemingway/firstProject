@@ -48,9 +48,12 @@ ul li{
 	color: #84C318;
 }
 
-.playerPic{
+.playerName{
 	width: 34%;
+	padding-top: 10px;
 }
+
+
 
 .largeTextDiv{
 	width: 50%; 
@@ -93,4 +96,8 @@ ul li{
 
 #gameOver{
 	display: none;
+}
+
+#playerNameBox{
+	text-align: center;	
 }

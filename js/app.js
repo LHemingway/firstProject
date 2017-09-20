@@ -8,10 +8,10 @@ var beginGame;
 var animatespeed = 1500;
 var enemyRespawn = 3200;
 var enemyLifeSpan = 3000;
-
+var playerName = $("#playerNameBox");
 	toggleDiv();
 	startGame();
-	
+	console.log(playerName);
 ///animation translation and random 
 ///Make duck hunt basically
 ///animate it moving across the screen from random spots
@@ -45,6 +45,7 @@ var enemyLifeSpan = 3000;
 			setScoreHP();
 			hideDiv();
 			enemiesFunc();
+			console.log(playerName.val());
 		});
 
 		$("#retryButton").click(function(){
@@ -53,9 +54,9 @@ var enemyLifeSpan = 3000;
 			enemiesFunc();
 		});
 
-		$("#navMulti").click(function(){
+		// $("#navMulti").click(function(){
 
-		});
+		// });
 	}
 
 	function enemiesFunc() {
@@ -93,7 +94,8 @@ var enemyLifeSpan = 3000;
 				if (score >= highScore) {
 					highScore = score;
 				$("#leaderboard ol").empty();	
-				$("#leaderboard ol").append("Player Name - " + "<br/>" + highScore);
+				$("#leaderboard ol").append(playerName.val() + "<br/>" + highScore);
+				console.log(playerName, highScore);
 			}
 			}
 		}, enemyLifeSpan);
