@@ -16,9 +16,13 @@ var enemyLifeSpan = 3000;
 ///Make duck hunt basically
 ///animate it moving across the screen from random spots
 
+///Fix going off screen.
+///attempt proper leader board
+///attempt two player
 
 ///Allow user to chose player name!
 ///Set Player name to be what shows up on high score!
+///Change cursor to like gun aim thing crosshair.
 
 
 	function toggleDiv() {

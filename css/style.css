@@ -4,13 +4,24 @@ body{
 	width: 100vw;
 	font-family: helvetica;
 	font-size: 1.2em;
+	color: #503D42;
+	/* Background Gradient for Analagous Colors */
+    background-color: #86866B;
+    /* For WebKit (Safari, Chrome, etc) */
+    background: #86866B -webkit-gradient(linear, left top, left bottom, from(#74866B), to(#86866B)) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: #86866B -moz-linear-gradient(top, #74866B, #86866B) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#74866B, endColorstr=#86866B) no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#74866B, endColorstr=#74866B)" no-repeat;
 }
 
 footer{
 	position:fixed;
 	bottom:0px;
 	width: 100%;
-	background-color: #C0C0C0;
+	background-color: #F5FBEF;
 }
 
 footer div{
@@ -32,8 +43,9 @@ ul li{
 			/*Classes*/
 
 .navbar{
-	background-color: #C0C0C0;
+	background-color: #F5FBEF;
 	padding-right: 20px;
+	color: #84C318;
 }
 
 .playerPic{
@@ -45,7 +57,7 @@ ul li{
 	height: 40%;
 	margin: 10% 25%;
 	border: 2px solid black;
-	background-color: #C0C0C0;
+	background-color: #F5FBEF;
 	text-align: center;
 	padding-top: 20px;
 }
