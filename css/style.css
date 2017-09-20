@@ -7,7 +7,6 @@ body{
 	color: #503D42;
     /* For WebKit (Safari, Chrome, etc) */
     background: #86866B -webkit-gradient(linear, left top, left bottom, from(#74866B), to(#86866B)) no-repeat;
-
     cursor: crosshair;
 }
 

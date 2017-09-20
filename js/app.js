@@ -1,27 +1,24 @@
 $(function() {
 
+var allScores = [];
 var score;
-var highScore = 0;
 var	hitPoints;
 var loss;
 var beginGame;
+var highScore = 0;
+var highScore2 = 0;
+var highScore3 = 0;
 var animatespeed = 1500;
 var enemyRespawn = 3200;
 var enemyLifeSpan = 3000;
 var playerName = $("#playerNameBox");
-var sniperSound = $("#sniperShot")[0];
-
-
-	toggleDiv();
-	startGame();
-	console.log(playerName);
-///animation translation and random 
-///Make duck hunt basically
-///animate it moving across the screen from random spots
 
 
 ///attempt proper leader board
 ///attempt two player
+
+	toggleDiv();
+	startGame();
 
 
 	function toggleDiv() {
@@ -41,17 +38,12 @@ var sniperSound = $("#sniperShot")[0];
 
 	function startGame(){
 		$("#navSingle").click(function(){
-			setScoreHP();
-			hideDiv();
-			enemiesFunc();
-			playSniper();
+			loadCheck()
+
 		});
 
 		$("#retryButton").click(function(){
-			setScoreHP();
-			hideDiv();
-			enemiesFunc();
-			playSniper();
+			loadCheck()
 		});
 
 		// $("#navMulti").click(function(){
@@ -59,8 +51,18 @@ var sniperSound = $("#sniperShot")[0];
 		// });
 	}
 
-	function enemiesFunc() {
+	function loadCheck(){
+		// if (playerName.val() === ""){
+			// 	alert("Please chose a name");
+			// } else {
+			setScoreHP();
+			hideDiv();
+			enemiesFunc();
+			playSniper();
+			// }
+	}
 
+	function enemiesFunc() {
 		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
 				length1 = 60 + Math.floor(Math.random() * 30) + 1;
@@ -69,8 +71,6 @@ var sniperSound = $("#sniperShot")[0];
 				height2 = Math.floor(Math.random() * 43) + 1;
 				marginHeight = Math.floor(Math.random() * 25) + 1;
 
-				console.log(length1 , length2);
-				console.log(height1, height2 );
         		$("<div class='enemies' id='enemy'></div>").appendTo('body');
         		$("#enemy").css("margin-top", marginHeight + "%");
         		
@@ -82,22 +82,18 @@ var sniperSound = $("#sniperShot")[0];
 	}	
 
 	function timeEnemies(){
-
 		loss = setTimeout(function() {
 			$("#enemy").remove();
+			$(".playerHP").css("background-color","red") 
+			setTimeout(function(){
+				$(".playerHP").css("background-color","#F5FBEF");
+			},200);
 			hitPoints --;
 			$(".playerHP").html("Health: " +hitPoints);
-			console.log("HP " + hitPoints);
 			if (hitPoints === 0){
 				$("#gameOver").show();
 				clearTimeout(beginGame);
-				if (score >= highScore) {
-					highScore = score;
-				$("#leaderboard ol").empty();	
-				$("#leaderboard ol").append(playerName.val() + "<br/>" + highScore);
-				
-
-			}
+				highScores();	
 			}
 		}, enemyLifeSpan);
 	}
@@ -105,6 +101,10 @@ var sniperSound = $("#sniperShot")[0];
 	function killEnemies(){
 		$("#enemy").click(function(){
 			$("#enemy").remove();
+			$(".playerScore").css("font-size","2em") 
+			setTimeout(function(){
+				$(".playerScore").css("font-size","1.2em");
+			},200);
 			score += 100;
 			animatespeed -=50;
 			enemyRespawn -=100;
@@ -128,13 +128,49 @@ var sniperSound = $("#sniperShot")[0];
 
 	function setScoreHP(){
 		score = 0;
-		hitPoints = 3;
+		hitPoints = 1;
 		$(".playerHP").html("Health: " +hitPoints);
 		$(".playerScore").html("Score: " +score);
 	}
 
-	function playSniper() { 
-    sniperSound.play(); 
-	} 
+	function playSniper(){
+		var sniperSound = $("#sniperShot")[0];
+
+		sniperSound.play();
+	}
 	
-})
+	function highScores(){
+		allScores.push(score);
+		allScores.sort (function (a, b) {
+			return b - a;
+		});
+		return allScores;
+		$("#numeroUno").append(allScores)
+
+	}
+		// if (score >= highScore) {
+		// 	highScore = highScore2;
+		// 	$("#numeroDos").append("2nd: " + playerName.val() + "  --  " + highScore);
+		// 	highScore = score;	
+		// 	$("#numeroUno").empty();
+		// 	$("#numeroUno").append("1st: " + playerName.val() + "  --  " + highScore + ("</br>"));
+		// } else if (score >= highScore2 && score < highScore) {
+		// 	highScore2 = score;	
+		// 	$("#numeroDos").empty();
+		// 	$("#numeroDos").append("2nd: " + playerName.val() + "  --  " + highScore);
+		// } else if (score >= highScore3 && score < highScore && score < highScore2) {
+		// 	highScore3 = score;	
+		// 	$("#numeroTres").empty();
+		// 	$("#numeroTres").append("3rd: " + playerName.val() + "  --  " + highScore);
+		// }
+
+	
+
+
+
+
+
+
+
+
+});
