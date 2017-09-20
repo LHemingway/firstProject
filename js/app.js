@@ -9,6 +9,9 @@ var animatespeed = 1500;
 var enemyRespawn = 3200;
 var enemyLifeSpan = 3000;
 var playerName = $("#playerNameBox");
+var sniperSound = $("#sniperShot")[0];
+
+
 	toggleDiv();
 	startGame();
 	console.log(playerName);
@@ -22,7 +25,6 @@ var playerName = $("#playerNameBox");
 
 ///Allow user to chose player name!
 ///Set Player name to be what shows up on high score!
-///Change cursor to like gun aim thing crosshair.
 
 
 	function toggleDiv() {
@@ -45,13 +47,14 @@ var playerName = $("#playerNameBox");
 			setScoreHP();
 			hideDiv();
 			enemiesFunc();
-			console.log(playerName.val());
+			playSniper();
 		});
 
 		$("#retryButton").click(function(){
 			setScoreHP();
 			hideDiv();
 			enemiesFunc();
+			playSniper();
 		});
 
 		// $("#navMulti").click(function(){
@@ -95,7 +98,8 @@ var playerName = $("#playerNameBox");
 					highScore = score;
 				$("#leaderboard ol").empty();	
 				$("#leaderboard ol").append(playerName.val() + "<br/>" + highScore);
-				console.log(playerName, highScore);
+				
+
 			}
 			}
 		}, enemyLifeSpan);
@@ -110,6 +114,7 @@ var playerName = $("#playerNameBox");
 			enemyLifeSpan -=100;
 			$(".playerScore").html("Score: " +score);
 			clearTimeout(loss);
+			playSniper();
 		});	
 	}
 
@@ -130,5 +135,9 @@ var playerName = $("#playerNameBox");
 		$(".playerHP").html("Health: " +hitPoints);
 		$(".playerScore").html("Score: " +score);
 	}
+
+	function playSniper() { 
+    sniperSound.play(); 
+	} 
 	
 })

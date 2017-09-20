@@ -15,6 +15,8 @@ body{
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#74866B, endColorstr=#86866B) no-repeat;
     /* IE 8 */
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#74866B, endColorstr=#74866B)" no-repeat;
+
+    cursor: crosshair;
 }
 
 footer{
@@ -22,6 +24,7 @@ footer{
 	bottom:0px;
 	width: 100%;
 	background-color: #F5FBEF;
+	cursor: default;
 }
 
 footer div{
@@ -46,6 +49,7 @@ ul li{
 	background-color: #F5FBEF;
 	padding-right: 20px;
 	color: #84C318;
+	cursor: default;
 }
 
 .playerName{
