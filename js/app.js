@@ -19,12 +19,9 @@ var sniperSound = $("#sniperShot")[0];
 ///Make duck hunt basically
 ///animate it moving across the screen from random spots
 
-///Fix going off screen.
+
 ///attempt proper leader board
 ///attempt two player
-
-///Allow user to chose player name!
-///Set Player name to be what shows up on high score!
 
 
 	function toggleDiv() {
@@ -66,17 +63,17 @@ var sniperSound = $("#sniperShot")[0];
 
 		beginGame = setInterval(function(){
 			for(i=0; i<1; i++) {
-				length1 = 60 + Math.floor(Math.random() * 35) + 1;
+				length1 = 60 + Math.floor(Math.random() * 30) + 1;
 				length2 = Math.floor(Math.random() * 30) + 1;
 				height1 = Math.floor(Math.random() * 43) + 1;
 				height2 = Math.floor(Math.random() * 43) + 1;
-				marginHeight = Math.floor(Math.random() * 43) + 1;
+				marginHeight = Math.floor(Math.random() * 25) + 1;
 
 				console.log(length1 , length2);
 				console.log(height1, height2 );
         		$("<div class='enemies' id='enemy'></div>").appendTo('body');
         		$("#enemy").css("margin-top", marginHeight + "%");
-    			
+        		
 				timeEnemies();
 				killEnemies();
 				enemyAnimate();
@@ -131,7 +128,7 @@ var sniperSound = $("#sniperShot")[0];
 
 	function setScoreHP(){
 		score = 0;
-		hitPoints = 1;
+		hitPoints = 3;
 		$(".playerHP").html("Health: " +hitPoints);
 		$(".playerScore").html("Score: " +score);
 	}
