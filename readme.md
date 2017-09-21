@@ -1,7 +1,7 @@
-Shooter Game
+Call of Java!
 ================
 
-Demo code for a Single Page Application using AngularJS.
+Read me for call of java, my first project for Sparta Global during SDET training.
 
 ## Purpose
 
@@ -15,25 +15,24 @@ Note also that it is a work in progress; you can check out what features are in 
 
 ## Functionality
 
-This is a simple application that displays several pages, including profile information for a list of people.
+It is a simple browser based game. When the game begins after the user has entered their name, paratroopers will start at the left hand side of the screen, swing to the right and back to the left before disappearing.
 
-The sample data is contrived, but shows how the data is stored in JSON format, retrieved via AJAX,
-and inserted into HTML templates.
+In this time the users aim is to click on the paratrooper to score points and remove it from the screen. Failing to do so will result in the user losing a life of which they start with 3. After all 3 lives are lost the game will end and the user will be given the option to play again. 
 
 ## Implementation
 
 The functionality has been implemented using the following features:
 
-* AngularJS 1.2, documented
-* Twitter Bootstrap 3.2
-* Javascript validated with JSHint and JSCS
-* automated CI build on code repo change
+* HTML5
+* Semantic HTML5
+* CSS
+* CSS Bootstrap
 * semantic HTML5
-* well-structured CSS built with LESS
-* responsive web development/design (no separate m-dot site)
-* page content sourced via XHR service call with JSON response (static)
-* multi-browser unit testing with Jasmine & Karma
-* grunt-driven builds to dev and prod distributions
+* Javascript
+* JQuery
+* Sublime
+* Responsive web development/design (no separate m-dot site)
+* http://www.picresize.com/
 
 ## Usage
 
@@ -57,21 +56,6 @@ $ grunt prod
 
 Set up local web servers to point to `dist/dev` and `dist/prod` for _dev_ and _prod_ distributions, respectively.
 
-### Customising
-
-To customise the content, modify the contents of the following files:
-
-* `svc/*/*.json`
-* `src/js/app/*/*/*.html`
-
-### Viewing the docs
-
-Build the docs, fire up a web server with `dist/docs` as the webroot, and point your browser to [`localhost:8001`](http://localhost:8001):
-
-``` sh
-$ ( grunt docs && cd dist/docs && python -m SimpleHTTPServer 8001 )
-```
-
 ## Issues
 
 The github issue system holds the issues for this project:
@@ -81,12 +65,8 @@ The github issue system holds the issues for this project:
 * [enhancements](https://github.com/mcalthrop/angular-spa-demo/labels/enhancement)
 * [investigate](https://github.com/mcalthrop/angular-spa-demo/labels/investigate)
 
-## Demo site
+## site
 
 [mcalthrop.github.io/angular-spa-demo/](http://mcalthrop.github.io/angular-spa-demo/)
 
 This site is kept up to date with the latest code in the codebase.
-
-## License
-
-[MIT](LICENSE)

@@ -87,7 +87,7 @@ var playerName = $("#playerNameBox");
 			$("#enemy").remove();
 			$(".playerHP").css("background-color","red") 
 			setTimeout(function(){
-				$(".playerHP").css("background-color","#F5FBEF");
+				$(".playerHP").css("background-color","#9BA0BC");
 			},200);
 			hitPoints --;
 			$(".playerHP").html("Health: " +hitPoints);
@@ -131,7 +131,7 @@ var playerName = $("#playerNameBox");
 
 	function setScoreHP(){
 		score = 0;
-		hitPoints = 1;
+		hitPoints = 3;
 		$(".playerHP").html("Health: " +hitPoints);
 		$(".playerScore").html("Score: " +score);
 	}

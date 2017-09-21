@@ -4,9 +4,8 @@ body{
 	width: 100vw;
 	font-family: helvetica;
 	font-size: 1.2em;
-	color: #503D42;
-    /* For WebKit (Safari, Chrome, etc) */
-    background: #86866B -webkit-gradient(linear, left top, left bottom, from(#74866B), to(#86866B)) no-repeat;
+	color: black;
+	background: linear-gradient(to bottom, #94c5f8 1%,#a6e6ff 70%,#b1b5ea 100%);
     cursor: crosshair;
 }
 
@@ -14,7 +13,7 @@ footer{
 	position:fixed;
 	bottom:0px;
 	width: 100%;
-	background-color: #F5FBEF;
+	background-color: #9BA0BC;
 	cursor: default;
 }
 
@@ -37,9 +36,8 @@ ul li{
 			/*Classes*/
 
 .navbar{
-	background-color: #F5FBEF;
+	background-color: #9BA0BC;
 	padding-right: 20px;
-	color: #84C318;
 	cursor: default;
 	border-bottom: 2px solid black;
 }
@@ -49,14 +47,12 @@ ul li{
 	padding-top: 10px;
 }
 
-
-
 .largeTextDiv{
 	width: 50%; 
 	height: 40%;
 	margin: 10% 25%;
 	border: 2px solid black;
-	background-color: #F5FBEF;
+	background-color: #9BA0BC;
 	text-align: center;
 	padding-top: 20px;
 }
@@ -67,7 +63,7 @@ ul li{
 	position: absolute; 
 	border: 2px solid black;
 	background-size: contain;
-	background-image: url("../images/Soldier100.png");
+	background-image: url("../images/rsz_paratrooper.png");
 	margin-left: 25px;
 }
 
@@ -77,9 +73,10 @@ ul li{
 	position: fixed;
 	height: 75px;
 	width: 100px;
-	margin: 23% 45%;
+	margin: 18% 45%;
 	border: 2px solid black;
-	background-color: red;
+	color: black;
+	background-color: #9BA0BC;
 }
 
 #timer{
@@ -94,16 +91,26 @@ ul li{
 	display: none;
 }
 
-#leaderboard ol{
-	list-style-type: none;
-	padding-top: 50px;
-	font-size: 1.6em;
-}
-
 #gameOver{
 	display: none;
 }
 
 #playerNameBox{
 	text-align: center;	
+}
+
+#navTitle{
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+#gameOver button{
+	color: #27213C; 
+	background-color: white;
+}
+
+#leaderboard ol{
+	list-style-type: none;
+	padding-top: 50px;
+	font-size: 1.6em;
 }
