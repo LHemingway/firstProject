@@ -13,8 +13,9 @@ var enemyRespawn = 3200;
 var enemyLifeSpan = 3000;
 var playerName = $("#playerNameBox");
 
-///attempt proper leader board
-///attempt two player
+///Attempt proper 2 player mode
+///Difficulty settings. (Could be done by adding 2 new start buttons
+/// and setting the animate respawn and lifespan speed in there maybe?)
 
 	toggleDiv();
 	startGame();
