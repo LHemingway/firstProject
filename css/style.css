@@ -5,6 +5,7 @@ body{
 	font-family: helvetica;
 	font-size: 1.2em;
 	color: black;
+	/*To get background color gradient*/
 	background: linear-gradient(to bottom, #94c5f8 1%,#a6e6ff 70%,#b1b5ea 100%);
     cursor: crosshair;
 }

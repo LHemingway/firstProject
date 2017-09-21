@@ -5,13 +5,9 @@ Read me for call of java, my first project for Sparta Global during SDET trainin
 
 ## Purpose
 
-This is a sample HTML5 / JS / CSS SPA (Single Page Application) developed with AngularJS.
+The purpose of this project was to impliment the skills that have been learnt during the first two weeks of training on the Sparta Gloabl SDET training course.
 
-Markup has been styled to be responsive, according to the device used to view the app.
-
-It is intended as a demonstration of technical capabilities rather than design or helpful data. :-)
-
-Note also that it is a work in progress; you can check out what features are in the pipeline in the [issues](#issues) list.
+As well as demonstrating the recently learned web development skills that are present in the application. I have also put into practise using BASH/Terminal to navigate through folders and to make regular commits to GitHub.
 
 ## Functionality
 
@@ -38,19 +34,9 @@ The functionality has been implemented using the following features:
 
 ### Building
 
-Fork/clone this repo, then:
+What I did how and when... Kinda what I'll be saying in the prezz
 
-``` sh
-$ bower install && npm install
-# build the dev distribution:
-$ grunt dev
-# run the unit tests:
-$ grunt test
-# just build the docs
-$ grunt docs
-# build the prod distribution (includes clean, test & docs) :
-$ grunt prod
-```
+During the projects lifecycle 
 
 ### Running
 
