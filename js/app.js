@@ -1,7 +1,7 @@
 $(function() {
 
-var allScores = [];
 var score;
+var	allScores = [];
 var	hitPoints;
 var loss;
 var beginGame;
@@ -12,7 +12,6 @@ var animatespeed = 1500;
 var enemyRespawn = 3200;
 var enemyLifeSpan = 3000;
 var playerName = $("#playerNameBox");
-
 
 ///attempt proper leader board
 ///attempt two player
@@ -52,14 +51,14 @@ var playerName = $("#playerNameBox");
 	}
 
 	function loadCheck(){
-		// if (playerName.val() === ""){
-			// 	alert("Please chose a name");
-			// } else {
+		if (playerName.val() === ""){
+				alert("Please chose a name");
+			} else {
 			setScoreHP();
 			hideDiv();
 			enemiesFunc();
 			playSniper();
-			// }
+			}
 	}
 
 	function enemiesFunc() {
@@ -94,6 +93,7 @@ var playerName = $("#playerNameBox");
 				$("#gameOver").show();
 				clearTimeout(beginGame);
 				highScores();	
+				console.log(allScores);
 			}
 		}, enemyLifeSpan);
 	}
@@ -140,34 +140,15 @@ var playerName = $("#playerNameBox");
 	}
 	
 	function highScores(){
-		allScores.push(score);
-		allScores.sort (function (a, b) {
-			return b - a;
-		});
-		return allScores;
-		$("#numeroUno").append(allScores)
+		allScores.push({name: playerName.val(), oScore: score});
+		
+		///Sort the object by sorting the array of oScore
+		///Figure out why playerName is returning as undefined.
+		$("#numeroUno").html("1st: " + allScores[0].playerName + allScores[0].oScore);
+		$("#numeroDos").html("2nd: " + allScores[1]);
+		$("#numeroTres").html("3rd: " + allScores[2]);
 
 	}
-		// if (score >= highScore) {
-		// 	highScore = highScore2;
-		// 	$("#numeroDos").append("2nd: " + playerName.val() + "  --  " + highScore);
-		// 	highScore = score;	
-		// 	$("#numeroUno").empty();
-		// 	$("#numeroUno").append("1st: " + playerName.val() + "  --  " + highScore + ("</br>"));
-		// } else if (score >= highScore2 && score < highScore) {
-		// 	highScore2 = score;	
-		// 	$("#numeroDos").empty();
-		// 	$("#numeroDos").append("2nd: " + playerName.val() + "  --  " + highScore);
-		// } else if (score >= highScore3 && score < highScore && score < highScore2) {
-		// 	highScore3 = score;	
-		// 	$("#numeroTres").empty();
-		// 	$("#numeroTres").append("3rd: " + playerName.val() + "  --  " + highScore);
-		// }
-
-	
-
-
-
 
 
 
