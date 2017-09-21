@@ -186,10 +186,4 @@ var playerName = $("#playerNameBox");
 		
 	}
 
-
-
-
-
-
-
 });
