@@ -73,6 +73,15 @@ ul li{
 
 			/*ID's*/
 
+#startButton{
+	position: fixed;
+	height: 75px;
+	width: 100px;
+	margin: 23% 45%;
+	border: 2px solid black;
+	background-color: red;
+}
+
 #timer{
 	color: black;
 }

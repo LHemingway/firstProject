@@ -36,7 +36,7 @@ var playerName = $("#playerNameBox");
 	}
 
 	function startGame(){
-		$("#navSingle").click(function(){
+		$("#startButton").click(function(){
 			loadCheck()
 
 		});
@@ -44,20 +44,21 @@ var playerName = $("#playerNameBox");
 		$("#retryButton").click(function(){
 			loadCheck()
 		});
-
-		// $("#navMulti").click(function(){
-
-		// });
 	}
 
 	function loadCheck(){
 		if (playerName.val() === ""){
 				alert("Please chose a name");
 			} else {
+			$("#startButton").hide();	
 			setScoreHP();
 			hideDiv();
 			enemiesFunc();
 			playSniper();
+			//Without reseting here it keeps the same numbers from the previous round.
+			animatespeed = 1500;
+			enemyRespawn = 3200;
+			enemyLifeSpan = 3000;
 			}
 	}
 
@@ -91,6 +92,7 @@ var playerName = $("#playerNameBox");
 			$(".playerHP").html("Health: " +hitPoints);
 			if (hitPoints === 0){
 				$("#gameOver").show();
+				$("#startButton").show();
 				clearTimeout(beginGame);
 				highScores();	
 				console.log(allScores);
@@ -138,20 +140,23 @@ var playerName = $("#playerNameBox");
 
 		sniperSound.play();
 	}
-	
+
 	function highScores(){
 		allScores.push({name: playerName.val(), oScore: score});
+		allScores.sort(function(a, b) {
+  			return b.oScore - a.oScore;
+  		});
+
+  		var leaderboardScores = allScores.slice(0,3);
+  		$("#leaderboard ol").empty();
+  		for (var i = 0; i < leaderboardScores.length; i++) {
+  			var highScore = i+1 + ": " + allScores[i].name + "-" + allScores[i].oScore;
+  			$("#leaderboard ol").append($("<li></li>").html(highScore));
+  		}
 		
-		///Sort the object by sorting the array of oScore
-		///Figure out why playerName is returning as undefined.
-		if ($("#numeroUno").is(':empty')){
-		$("#numeroUno").html("1st: " + allScores[0].name + "-" + allScores[0].oScore);
-		} else if ($("#numeroDos").is(':empty') ) {
-		$("#numeroDos").html("2nd: " + allScores[1].name + "-" + allScores[1].oScore);
-		} else if ($("#numeroDos").is(':empty')) {
-		$("#numeroTres").html("3rd: " + allScores[2].name + "-" + allScores[2].oScore);
-		}
 	}
+
+
 
 
 
