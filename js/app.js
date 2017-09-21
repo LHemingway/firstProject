@@ -144,10 +144,13 @@ var playerName = $("#playerNameBox");
 		
 		///Sort the object by sorting the array of oScore
 		///Figure out why playerName is returning as undefined.
-		$("#numeroUno").html("1st: " + allScores[0].playerName + allScores[0].oScore);
-		$("#numeroDos").html("2nd: " + allScores[1]);
-		$("#numeroTres").html("3rd: " + allScores[2]);
-
+		if ($("#numeroUno").is(':empty')){
+		$("#numeroUno").html("1st: " + allScores[0].name + "-" + allScores[0].oScore);
+		} else if ($("#numeroDos").is(':empty') ) {
+		$("#numeroDos").html("2nd: " + allScores[1].name + "-" + allScores[1].oScore);
+		} else if ($("#numeroDos").is(':empty')) {
+		$("#numeroTres").html("3rd: " + allScores[2].name + "-" + allScores[2].oScore);
+		}
 	}
 
 
